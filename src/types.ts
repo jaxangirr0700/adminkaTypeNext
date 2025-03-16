@@ -5,6 +5,7 @@ export interface SidebarItemTypes {
 }
 
 export interface StudentTypes {
+  id: number;
   key: string;
   name: string;
   age: number;

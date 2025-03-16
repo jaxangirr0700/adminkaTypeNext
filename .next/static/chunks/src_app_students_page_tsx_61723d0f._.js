@@ -12,8 +12,8 @@
     "static/chunks/node_modules_rc-table_es_23647edc._.js",
     "static/chunks/node_modules_rc-tree_es_d885700e._.js",
     "static/chunks/node_modules_rc-select_es_b53f2576._.js",
-    "static/chunks/node_modules_9189641f._.js",
-    "static/chunks/src_2ae98bc0._.js"
+    "static/chunks/node_modules_d817250c._.js",
+    "static/chunks/src_f209af94._.js"
   ],
   "source": "dynamic"
 });

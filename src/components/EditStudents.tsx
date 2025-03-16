@@ -1,10 +1,7 @@
 import useGlobalStore from "@/store/my-store";
-import { getRandomID } from "@/utils/number";
-import { PlusOutlined } from "@ant-design/icons";
 import { Button, Drawer, Form, Input, InputNumber, Radio, Space } from "antd";
 import { CheckboxGroupProps } from "antd/es/checkbox/Group.js";
 import FormItem from "antd/es/form/FormItem/index.js";
-import { log } from "node:console";
 
 function EditStudents({
   onCloseEdit,

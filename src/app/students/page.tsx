@@ -1,5 +1,6 @@
 "use client";
 import AddStudent from "@/components/AddStudent";
+import DeleteStudents from "@/components/DeleteStudents";
 import EditStudents from "@/components/EditStudents";
 import useGlobalStore from "@/store/my-store";
 import { Button, Switch, Table } from "antd";
@@ -25,6 +26,7 @@ function SrudentsPage() {
   const [AddOpen, setAddOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
   const [EditStudent, setEditStudent] = useState({});
+  const [deleteStudent, setDeleteStudent] = useState({});
 
   const showDrawer = () => {
     setAddOpen(true);
@@ -122,23 +124,39 @@ function SrudentsPage() {
             {
               title: "Active",
               dataIndex: "active",
-              render: (v, studentt:any) => {
+              render: (v, studentt: any) => {
                 return (
-                  <Switch
-                    checked={v}
-                    onChange={(checked) => {
-                      const new_students = state.students.map((item: any) => {
-                        if (item.id === studentt.id) {
-                          return {
-                            ...item,
-                            active: checked,
-                          };
-                        }
-                        return item;
-                      });
-                      useGlobalStore.setState({ students: new_students });
-                    }}
-                  />
+                  <div className="flex gap-1 items-center">
+                    <Switch
+                      checked={v}
+                      onChange={(checked) => {
+                        const localStudent: StudentType[] = JSON.parse(
+                          localStorage.getItem("students") || "[]"
+                        );
+
+                        const new_students = localStudent.map((item) => {
+                          if (item.id === studentt.id) {
+                            return {
+                              ...item,
+                              active: checked,
+                            };
+                          }
+                          return item;
+                        });
+
+                        localStorage.setItem(
+                          "students",
+                          JSON.stringify(new_students)
+                        );
+                        useGlobalStore.setState({ students: new_students });
+                      }}
+                    />
+                    <DeleteStudents
+                      studentt={studentt}
+                      setDeleteStudent={setDeleteStudent}
+                      deleteStudent={deleteStudent}
+                    />
+                  </div>
                 );
               },
             },
@@ -150,7 +168,11 @@ function SrudentsPage() {
           type="text"
           variant="text"
           onClick={() => {
-            localStorage.clear();
+            if (window.confirm("Hammasini o'chirishni tasdiqlaysizmi?")) {
+              localStorage.clear();
+              alert("Hammasi o'chirildi!");
+            }
+            //ha gptdan oldim windowni
           }}
         >
           Hammasini ochirish{" "}

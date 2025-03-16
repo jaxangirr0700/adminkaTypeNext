@@ -41,6 +41,7 @@ function AddStudent({ onClose, open, showDrawer }: any) {
             });
             useGlobalStore.setState({ students: new_students });
             localStorage.setItem("students", JSON.stringify(new_students));
+            onClose(false);
           }}
         >
           <FormItem
