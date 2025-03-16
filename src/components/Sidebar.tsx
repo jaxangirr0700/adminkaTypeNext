@@ -26,7 +26,7 @@ export default function Sidebar() {
             </li>
           </Link>
         ))}
-      </ul> */}
+      </ul> */} 
       <Menu
         className="h-full rounded-xl"
         style={{
