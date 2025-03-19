@@ -1,11 +1,20 @@
 import useGlobalStore from "@/store/my-store";
 import { getRandomID } from "@/utils/number";
 import { PlusOutlined } from "@ant-design/icons";
-import { Button, Drawer, Form, Input, InputNumber, Radio, Space } from "antd";
+import {
+  Button,
+  Drawer,
+  Form,
+  Input,
+  InputNumber,
+  Radio,
+  Select,
+  Space,
+} from "antd";
 import { CheckboxGroupProps } from "antd/es/checkbox/Group.js";
 import FormItem from "antd/es/form/FormItem/index.js";
 
-function AddStudent({ onClose, open, showDrawer }: any) {
+function AddStudent({ onClose, open, showDrawer, item }: any) {
   const options: CheckboxGroupProps<string>["options"] = [
     { label: "Erkak", value: "male" },
     { label: "Ayol", value: "female" },
@@ -64,6 +73,20 @@ function AddStudent({ onClose, open, showDrawer }: any) {
             rules={[{ required: true, message: "Yoshingiz kiritilmadi!!!" }]}
           >
             <InputNumber />
+          </FormItem>{" "}
+          <FormItem
+            label="Guruh"
+            name="group_id"
+            rules={[{ required: true, message: "Guruhni tanlang!" }]}
+          >
+            <Select
+              options={state.groups.map((g) => {
+                return {
+                  label: g.name,
+                  value: g.id,
+                };
+              })}
+            />
           </FormItem>
           <FormItem label="Jinsi" name="gender">
             <Radio.Group

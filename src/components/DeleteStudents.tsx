@@ -3,20 +3,16 @@ import { StudentTypes } from "@/types";
 import { DeleteFilled } from "@ant-design/icons";
 import { Button } from "antd";
 
-function DeleteStudents({ setDeleteStudent, deleteStudent, studentt }: any) {
-  const state = useGlobalStore();
+function DeleteStudents({ studentt }: { studentt: StudentTypes }) {
   function DeleteStudentFn() {
     const localStudent: StudentTypes[] | null = JSON.parse(
       localStorage.getItem("students") || "null"
     );
-    const newStudents = localStudent?.filter((i) => {
-      if (i.id !== studentt.id) {
-        return i;
-      }
-    });
+    const newStudents = localStudent?.filter((i) => i.id !== studentt.id);
     localStorage.setItem("students", JSON.stringify(newStudents));
     useGlobalStore.setState({ students: newStudents });
   }
+
   return (
     <div>
       <Button
@@ -24,9 +20,7 @@ function DeleteStudents({ setDeleteStudent, deleteStudent, studentt }: any) {
         color="danger"
         variant="outlined"
         icon={<DeleteFilled />}
-        onClick={() => {
-          DeleteStudentFn();
-        }}
+        onClick={DeleteStudentFn}
       ></Button>
     </div>
   );

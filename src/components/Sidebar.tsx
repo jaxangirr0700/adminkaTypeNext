@@ -1,8 +1,12 @@
 "use client";
 
+import { SidebarItemTypes } from "@/types";
 import {
+  FileOutlined,
   FolderOpenOutlined,
   HomeOutlined,
+  OrderedListOutlined,
+  ProductFilled,
   UserOutlined,
 } from "@ant-design/icons";
 import { Menu } from "antd";
@@ -26,7 +30,7 @@ export default function Sidebar() {
             </li>
           </Link>
         ))}
-      </ul> */} 
+      </ul> */}
       <Menu
         className="h-full rounded-xl"
         style={{
@@ -34,7 +38,7 @@ export default function Sidebar() {
           maxWidth: 150,
           height: "100vh",
         }}
-        selectedKeys={[location.pathname]}
+        selectedKeys={[pathname]}
         mode="inline"
         theme="dark"
         inlineCollapsed={false}
@@ -55,21 +59,22 @@ export default function Sidebar() {
             icon: <FolderOpenOutlined />,
             label: <Link href={"/groups"}>Groups</Link>,
           },
-          // {
-          //   key: "/rentspage",
-          //   icon: <FolderOpenOutlined />,
-          //   label: <Link href={"/rentspage"}>Rents</Link>,
-          // },
-          // {
-          //   key: "/usespage",
-          //   icon: <UserOutlined />,
-          //   label: <Link href={"/userspage"}>Users</Link>,
-          // },
-          // {
-          //   key: "/stoks",
-          //   icon: <StockOutlined />,
-          //   label: <Link href={"/stoks"}>Kitoblarim</Link>,
-          // },
+          {
+            key: "/products",
+            icon: <FileOutlined />,
+            label: <Link href={"/products"}>Products</Link>,
+          },
+          {
+            key: "/categories",
+            icon: <ProductFilled />,
+            label: <Link href={"/categories"}>Categories</Link>,
+          },
+          {
+            key: "/orders",
+            icon: <OrderedListOutlined />,
+            label: <Link href={"/orders"}>Buyurtmalar</Link>,
+          },
+          // Qo'shimcha sahifalar uchun kod izohga olingan
         ]}
       />
     </aside>

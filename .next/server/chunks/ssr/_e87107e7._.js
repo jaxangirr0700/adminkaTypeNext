@@ -1,9 +1,11 @@
 module.exports = {
 
-"[project]/.next-internal/server/app/groups/page/actions.js [app-rsc] (server actions loader, ecmascript)": (function(__turbopack_context__) {
+"[project]/.next-internal/server/app/groups/page/actions.js [app-rsc] (server actions loader, ecmascript)": ((__turbopack_context__) => {
+"use strict";
 
-var { g: global, __dirname, m: module, e: exports } = __turbopack_context__;
+var { g: global, __dirname } = __turbopack_context__;
 {
+__turbopack_context__.s({});
 }}),
 "[project]/src/app/favicon.ico.mjs { IMAGE => \"[project]/src/app/favicon.ico (static in ecmascript)\" } [app-rsc] (structured image object, ecmascript, Next.js server component)": ((__turbopack_context__) => {
 
@@ -22,20 +24,142 @@ __turbopack_context__.n(__turbopack_context__.i("[project]/src/app/layout.tsx [a
 
 var { g: global, __dirname } = __turbopack_context__;
 {
-__turbopack_context__.s({
-    "default": (()=>Groups)
-});
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.js [app-rsc] (ecmascript)");
-;
-function Groups() {
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        children: "Groups"
-    }, void 0, false, {
-        fileName: "[project]/src/app/groups/page.tsx",
-        lineNumber: 4,
-        columnNumber: 10
-    }, this);
-}
+// "use client";
+// import AddStudent from "@/components/AddStudent";
+// import DeleteStudents from "@/components/DeleteStudents";
+// import EditStudents from "@/components/EditStudents";
+// import useGlobalStore from "@/store/my-store";
+// import { GroupType } from "@/types";
+// import { Button, Switch, Table } from "antd";
+// import { useState } from "react";
+// type StudentType = {
+//   id: number;
+//   firstName: string;
+//   lastName: string;
+//   age: number;
+//   gender: "male" | "female";
+//   active: boolean;
+// };
+// type GlobalStoreType = {
+//   students: StudentType[];
+//   groups: GroupType[];
+// };
+// function GroupsPage() {
+//   const state = useGlobalStore();
+//   const [AddOpen, setAddOpen] = useState(false);
+//   const [editOpen, setEditOpen] = useState(false);
+//   const [EditStudent, setEditStudent] = useState({});
+//   const [deleteStudent, setDeleteStudent] = useState({});
+//   const showDrawer = () => {
+//     setAddOpen(true);
+//   };
+//   const showDrawerEdit = () => {
+//     setEditOpen(true);
+//   };
+//   const onClose = () => {
+//     setAddOpen(false);
+//   };
+//   const onCloseEdit = () => {
+//     setEditOpen(false);
+//   };
+//   return (
+//     <div className="flex flex-col items-center">
+//       <div className="flex gap-2 items-center justify-center  ">
+//         <Button>Umumiy son: {state.groups.length}</Button>
+//         <Button>
+//           Faollar:
+//           {
+//             state.groups.filter((item: any) => {
+//               return item.active;
+//             }).length
+//           }
+//         </Button>
+//         <Button>
+//           Nofaollar:
+//           {state.groups.reduce((count: any, item: any) => {
+//             return !item.active ? count + 1 : count;
+//           }, 0)}
+//         </Button>
+//       </div>
+//       <div className="flex flex-col my-5">
+//         <AddStudent
+//           onClose={onClose}
+//           open={AddOpen}
+//           showDrawer={showDrawer}
+//           item={state.groups}
+//         />
+//         <EditStudents
+//           editOpen={editOpen}
+//           showDrawerEdit={showDrawerEdit}
+//           onCloseEdit={onCloseEdit}
+//           EditStudent={EditStudent}
+//           setEditStudent={setEditStudent}
+//         />
+//         <Table
+//           columns={[
+//             {
+//               title: "ID",
+//               dataIndex: "id",
+//               render: (id: any, student, s) => {
+//                 return (
+//                   <span
+//                     className=" cursor-pointer "
+//                     onClick={() => {
+//                       setEditOpen(true);
+//                       setEditStudent(student);
+//                     }}
+//                   >
+//                     {id}
+//                   </span>
+//                 );
+//               },
+//             },
+//             {
+//               title: "Ism",
+//               dataIndex: "name",
+//             },
+//             {
+//               title: "Ism",
+//               dataIndex: "studentCount",
+//             },
+//             {
+//               title: "Active",
+//               dataIndex: "active",
+//               render: (v, studentt: any) => {
+//                 return (
+//                   <div className="flex gap-1 items-center">
+//                     <Switch
+//                       checked={v}
+//                       onChange={(checked) => {
+//                         console.log("switch click");
+//                       }}
+//                     />
+//                     <DeleteStudents
+//                       item={studentt}
+//                       setDeleteStudent={setDeleteStudent}
+//                       deleteStudent={deleteStudent}
+//                     />
+//                   </div>
+//                 );
+//               },
+//             },
+//           ]}
+//           dataSource={state.groups.map((i: any) => {
+//             return {
+//               ...i,
+//               key: i.id,
+//             };
+//           })}
+//         />
+//         <Button color="danger" type="text" variant="text" onClick={() => {}}>
+//           Hammasini ochirish{" "}
+//         </Button>
+//       </div>
+//     </div>
+//   );
+// }
+// export default GroupsPage;
+__turbopack_context__.s({});
 }}),
 "[project]/src/app/groups/page.tsx [app-rsc] (ecmascript, Next.js server component)": ((__turbopack_context__) => {
 

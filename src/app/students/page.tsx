@@ -22,6 +22,7 @@ type GlobalStoreType = {
 
 function SrudentsPage() {
   const state = useGlobalStore();
+  console.log(state);
 
   const [AddOpen, setAddOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
@@ -109,8 +110,14 @@ function SrudentsPage() {
               dataIndex: "lastName",
             },
             {
-              title: "Yosh",
-              dataIndex: "age",
+              title: "Guruh",
+              dataIndex: "group_id",
+              render: (group_id) => {
+                const group = state.groups.find((f) => {
+                  return f.id === group_id;
+                });
+                return group?.name;
+              },
             },
             {
               title: "Jinsi",
@@ -138,6 +145,7 @@ function SrudentsPage() {
                           if (item.id === studentt.id) {
                             return {
                               ...item,
+                              key: item.id,
                               active: checked,
                             };
                           }
@@ -161,7 +169,12 @@ function SrudentsPage() {
               },
             },
           ]}
-          dataSource={state.students}
+          dataSource={state.students.map((i: any) => {
+            return {
+              ...i,
+              key: i.id,
+            };
+          })}
         />
         <Button
           color="danger"

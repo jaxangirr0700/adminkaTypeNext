@@ -8,98 +8,107 @@ function EditStudents({
   editOpen,
   EditStudent,
   setEditStudent,
-}: any) {
+}: {
+  onCloseEdit: () => void;
+  editOpen: boolean;
+  EditStudent: {
+    id: string;
+    firstName: string;
+    lastName: string;
+    age: number;
+    gender: string;
+    active: boolean;
+  };
+  setEditStudent: (student: any) => void; // Aniq tur ko'rsatilishi kerak
+}) {
   const options: CheckboxGroupProps<string>["options"] = [
     { label: "Erkak", value: "male" },
     { label: "Ayol", value: "female" },
   ];
   const optionsActive: CheckboxGroupProps<boolean>["options"] = [
     { label: "Active", value: true },
-    { label: "inactive", value: false },
+    { label: "Inactive", value: false },
   ];
-  const state = useGlobalStore();
-  return (
-    <>
-      <Drawer
-        title="Yangi student qo'shish"
-        width={500}
-        onClose={onCloseEdit}
-        open={editOpen}
-        styles={{
-          body: {
-            paddingBottom: 80,
-          },
-        }}
-        extra={<Space>{/* <Button onClick={onClose}>X</Button> */}</Space>}
-        destroyOnClose
-      >
-        <Form
-          initialValues={EditStudent}
-          onFinish={(values) => {
-            const localStudent = localStorage.getItem("students");
-            const realStudents = localStudent ? JSON.parse(localStudent) : [];
 
-            const updatedStudents = realStudents.map((student: any) => {
-              if (student.id === EditStudent.id) {
-                return {
-                  ...student,
-                  ...values,
-                };
-              }
-              return student;
-            });
-            useGlobalStore.setState({ students: updatedStudents });
-            localStorage.setItem("students", JSON.stringify(updatedStudents));
-            onCloseEdit();
-          }}
+  return (
+    <Drawer
+      title="Yangi student qo'shish"
+      width={500}
+      onClose={onCloseEdit}
+      open={editOpen}
+      styles={{
+        body: {
+          paddingBottom: 80,
+        },
+      }}
+      destroyOnClose
+    >
+      <Form
+        initialValues={EditStudent}
+        onFinish={(values) => {
+          const localStudent = localStorage.getItem("students");
+          const realStudents = localStudent ? JSON.parse(localStudent) : [];
+
+          const updatedStudents = realStudents.map((student: any) => {
+            if (student.id === EditStudent.id) {
+              return {
+                ...student,
+                ...values,
+              };
+            }
+            return student;
+          });
+          useGlobalStore.setState({ students: updatedStudents });
+          localStorage.setItem("students", JSON.stringify(updatedStudents));
+          onCloseEdit();
+        }}
+      >
+        <Form.Item
+          label="Ism"
+          name="firstName"
+          rules={[{ required: true, message: "Ism kiritilmadi!!!" }]}
         >
-          <FormItem
-            label="Ism"
-            name="firstName"
-            rules={[{ required: true, message: "Ism kiritilmadi!!!" }]}
-          >
-            <Input />
-          </FormItem>
-          <FormItem
-            label="Familiya"
-            name="lastName"
-            rules={[{ required: true, message: "Familiya kiritilmadi!!!" }]}
-          >
-            <Input />
-          </FormItem>
-          <FormItem
-            label="Yosh"
-            name="age"
-            rules={[{ required: true, message: "Yoshingiz kiritilmadi!!!" }]}
-          >
-            <InputNumber />
-          </FormItem>
-          <FormItem label="Jinsi" name="gender">
-            <Radio.Group
-              block
-              options={options}
-              defaultValue="Erkak"
-              optionType="button"
-              buttonStyle="solid"
-            />
-          </FormItem>{" "}
-          <FormItem label="Active" name="active">
-            <Radio.Group
-              block
-              options={optionsActive}
-              defaultValue="Erkak"
-              optionType="button"
-              buttonStyle="solid"
-            />
-          </FormItem>
-          <FormItem>
-            <Button type="primary" htmlType="submit">
-              Submit
-            </Button>
-          </FormItem>
-        </Form>
-      </Drawer>
-    </>
+          <Input />
+        </Form.Item>
+        <FormItem
+          label="Familiya"
+          name="lastName"
+          rules={[{ required: true, message: "Familiya kiritilmadi!!!" }]}
+        >
+          <Input />
+        </FormItem>
+        <Form.Item
+          label="Yosh"
+          name="age"
+          rules={[{ required: true, message: "Yoshingiz kiritilmadi!!!" }]}
+        >
+          <InputNumber />
+        </Form.Item>
+        <Form.Item label="Jinsi" name="gender">
+          <Radio.Group
+            block
+            options={options}
+            defaultValue={EditStudent.gender} // Aniq gender qiymatini oling
+            optionType="button"
+            buttonStyle="solid"
+          />
+        </Form.Item>
+        <Form.Item label="Active" name="active">
+          <Radio.Group
+            block
+            options={optionsActive}
+            defaultValue={EditStudent.active} // Aniq active qiymatini oling
+            optionType="button"
+            buttonStyle="solid"
+          />
+        </Form.Item>
+        <Form.Item>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </Form.Item>
+      </Form>
+    </Drawer>
   );
 }
 
