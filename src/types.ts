@@ -3,6 +3,7 @@ export type GlobalStoreTypes = {
   groups: GroupType[];
   categories: CategoriesTypes[];
   products: ProductTypes[];
+  language: Language;
 };
 
 export interface SidebarItemTypes {
@@ -11,7 +12,10 @@ export interface SidebarItemTypes {
   path: string;
 }
 
+export type Language = "uzbek" | "english" | "russian";
 export type OrdersTypes = {
+  categorieId: number;
+
   productID: number;
   studentID: number;
   id: number;
@@ -19,6 +23,7 @@ export type OrdersTypes = {
   coutnt: number;
   total_price: number;
   address: string;
+  status: "qabul_qilindi" | "yetkazib_berilmoqda" | "tugallandi";
 };
 export interface CategoriesTypes {
   id: number;

@@ -9,7 +9,7 @@ __turbopack_context__.s({
     "getRandomID": (()=>getRandomID)
 });
 function getRandomID() {
-    return Math.floor(Math.random() * 4500);
+    return Math.floor(Math.random() * 100000);
 }
 }}),
 "[project]/src/store/my-store.ts [app-ssr] (ecmascript)": ((__turbopack_context__) => {
@@ -25,20 +25,38 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$e
 ;
 ;
 const useGlobalStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$esm$2f$react$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["create"])(()=>{
+    const studentIdReal = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getRandomID"])();
+    const groupIdReal = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getRandomID"])();
+    const productIdReal = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getRandomID"])();
+    const cartegorieIdReal = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getRandomID"])();
+    const orderIdReal = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getRandomID"])();
     const initialStudents = [
         {
-            id: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getRandomID"])(),
+            id: studentIdReal,
             active: true,
             firstName: "Jaxangir",
             lastName: "Raxmarullayev",
             age: 0,
             gender: "male",
-            group_id: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getRandomID"])()
+            group_id: groupIdReal
+        }
+    ];
+    const initialOrders = [
+        {
+            categorieId: cartegorieIdReal,
+            productID: productIdReal,
+            studentID: studentIdReal,
+            id: orderIdReal,
+            name: "Order",
+            coutnt: 2,
+            total_price: 1212,
+            address: "Tashkent",
+            status: "qabul_qilindi"
         }
     ];
     const initialCategories = [
         {
-            id: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getRandomID"])(),
+            id: cartegorieIdReal,
             active: true,
             name: "Categories",
             productCount: 0
@@ -46,7 +64,7 @@ const useGlobalStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_
     ];
     const initialProduct = [
         {
-            id: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getRandomID"])(),
+            id: productIdReal,
             active: true,
             name: "Product",
             price: 0,
@@ -55,20 +73,8 @@ const useGlobalStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_
     ];
     const initialGroups = [
         {
-            id: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getRandomID"])(),
+            id: groupIdReal,
             name: "guruh 1",
-            isActive: false,
-            studentCount: 0
-        },
-        {
-            id: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getRandomID"])(),
-            name: "guruh 2",
-            isActive: false,
-            studentCount: 0
-        },
-        {
-            id: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getRandomID"])(),
-            name: "guruh 3",
             isActive: false,
             studentCount: 0
         }
@@ -77,11 +83,14 @@ const useGlobalStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_
     const storedGroups = ("TURBOPACK compile-time falsy", 0) ? ("TURBOPACK unreachable", undefined) : [];
     const storedCategories = ("TURBOPACK compile-time falsy", 0) ? ("TURBOPACK unreachable", undefined) : [];
     const storedProducts = ("TURBOPACK compile-time falsy", 0) ? ("TURBOPACK unreachable", undefined) : [];
+    const storedOrders = ("TURBOPACK compile-time falsy", 0) ? ("TURBOPACK unreachable", undefined) : [];
     return {
         students: storedStudents.length > 0 ? storedStudents : initialStudents,
         groups: storedGroups.length > 0 ? storedGroups : initialGroups,
         categories: storedCategories.length > 0 ? storedCategories : initialCategories,
-        products: storedProducts.length > 0 ? storedProducts : initialProduct
+        products: storedProducts.length > 0 ? storedProducts : initialProduct,
+        orders: storedOrders.length > 0 ? storedOrders : initialOrders,
+        language: "uzbek"
     };
 });
 const __TURBOPACK__default__export__ = useGlobalStore;
@@ -191,7 +200,7 @@ function AddCategories({ onClose, open, showDrawer }) {
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$antd$2f$es$2f$form$2f$FormItem$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                             label: "Mahsulotlar soni",
-                            name: "studentCount",
+                            name: "productCount",
                             rules: [
                                 {
                                     required: true,
@@ -294,7 +303,7 @@ function EditCategories({ onCloseEdit, editOpen, EditStudent, setEditStudent }) 
     const state = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$my$2d$store$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])();
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$antd$2f$es$2f$drawer$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Drawer$3e$__["Drawer"], {
-            title: "Yangi student qo'shish",
+            title: " Kategoriyani o'zgartirish ",
             width: 500,
             onClose: onCloseEdit,
             open: editOpen,

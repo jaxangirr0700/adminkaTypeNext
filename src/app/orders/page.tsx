@@ -1,10 +1,13 @@
 "use client";
 import useGlobalStore from "@/store/my-store";
-import { Button, Table } from "antd";
+import { Button, Table, Select } from "antd";
 import { useState } from "react";
 import AddOrders from "./edits/Addorders";
 import DeleteOrders from "./edits/Deleteorders";
 import EditOrders from "./edits/EditOrders";
+import { texts } from "@/constants/data";
+
+type Language = "uzbek" | "english" | "russian";
 
 function OrdersPage() {
   const state = useGlobalStore();
@@ -13,9 +16,11 @@ function OrdersPage() {
   const [editOpen, setEditOpen] = useState(false);
   const [EditOrder, setEditOrder] = useState({});
   const [deleteOrder, setDeleteOrder] = useState({});
+
   const showDrawer = () => {
     setAddOpen(true);
   };
+
   const showDrawerEdit = () => {
     setEditOpen(true);
   };
@@ -23,12 +28,29 @@ function OrdersPage() {
   const onClose = () => {
     setAddOpen(false);
   };
+
   const onCloseEdit = () => {
     setEditOpen(false);
   };
 
+  const changeLanguage = (value: Language) => {
+    useGlobalStore.setState({ language: value });
+  };
+
+  const language: Language = (state.language as Language) || "uzbek";
+
   return (
     <div className="flex flex-col items-center">
+      <Select
+        defaultValue={language}
+        style={{ width: 120, marginBottom: 16 }}
+        onChange={changeLanguage}
+      >
+        <Select.Option value="uzbek">O'zbekcha</Select.Option>
+        <Select.Option value="english">English</Select.Option>
+        <Select.Option value="russian">Русский</Select.Option>
+      </Select>
+
       <div className="flex gap-2 items-center justify-center">
         <Button>Umumiy son: {state.orders.length}</Button>
         <Button>
@@ -38,6 +60,7 @@ function OrdersPage() {
           Nofaollar: {state.orders.filter((item: any) => !item.active).length}
         </Button>
       </div>
+
       <div className="flex flex-col my-5">
         <AddOrders onClose={onClose} open={AddOpen} showDrawer={showDrawer} />
         <EditOrders
@@ -50,7 +73,7 @@ function OrdersPage() {
         <Table
           columns={[
             {
-              title: "ID",
+              title: texts[language].id,
               dataIndex: "id",
               render: (id, order) => (
                 <span
@@ -67,6 +90,12 @@ function OrdersPage() {
             {
               title: "Nomi",
               dataIndex: "name",
+              render: (name, order) => {
+                const product = state.products.find(
+                  (i) => i.id === order.productID
+                );
+                return product ? product.name : "Noma'lum";
+              },
             },
             {
               title: "Narx",
@@ -79,15 +108,19 @@ function OrdersPage() {
             },
 
             {
-              title: "Mahsulot Soni",
+              title: texts[language].count,
               dataIndex: "count",
             },
             {
-              title: "Manzil",
+              title: texts[language].address,
               dataIndex: "address",
             },
             {
-              title: "Mijoz",
+              title: texts[language].status,
+              dataIndex: "status",
+            },
+            {
+              title: texts[language].customer,
               dataIndex: "studentID",
               render: (studentID) => {
                 const student = state.students.find((s) => s.id === studentID);
@@ -95,15 +128,7 @@ function OrdersPage() {
               },
             },
             {
-              title: "Kategoriyasi",
-              dataIndex: "productID",
-              render: (productID) => {
-                const product = state.products.find((p) => p.id === productID);
-                return product ? product.name : "Noma'lum";
-              },
-            },
-            {
-              title: "Delete",
+              title: texts[language].delete,
               dataIndex: "productID",
               render: (productID, order) => {
                 return (
@@ -126,13 +151,13 @@ function OrdersPage() {
           type="text"
           variant="text"
           onClick={() => {
-            if (window.confirm("Hammasini o'chirishni tasdiqlaysizmi?")) {
+            if (window.confirm(texts[language].confirmDelete)) {
               localStorage.removeItem("orders");
               alert("Hammasi o'chirildi!");
             }
           }}
         >
-          Hammasini ochirish
+          {texts[language].deleteAll}
         </Button>
       </div>
     </div>

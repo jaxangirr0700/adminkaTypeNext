@@ -41,6 +41,7 @@ const useGlobalStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_
     ];
     const initialOrders = [
         {
+            categorieId: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getRandomID"])(),
             productID: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getRandomID"])(),
             studentID: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getRandomID"])(),
             id: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getRandomID"])(),
@@ -421,7 +422,7 @@ function AddGroup({ onClose, open, showDrawer }) {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$antd$2f$es$2f$drawer$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Drawer$3e$__["Drawer"], {
-                title: "Yangi student qo'shish",
+                title: "Yangi guruh qo'shish",
                 width: 500,
                 onClose: onClose,
                 open: open,
@@ -608,7 +609,7 @@ function GroupsPage() {
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/groups/page.tsx",
-                        lineNumber: 51,
+                        lineNumber: 37,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$antd$2f$es$2f$button$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__$3c$export__default__as__Button$3e$__["Button"], {
@@ -620,7 +621,7 @@ function GroupsPage() {
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/groups/page.tsx",
-                        lineNumber: 52,
+                        lineNumber: 38,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$antd$2f$es$2f$button$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__$3c$export__default__as__Button$3e$__["Button"], {
@@ -632,13 +633,13 @@ function GroupsPage() {
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/groups/page.tsx",
-                        lineNumber: 60,
+                        lineNumber: 46,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/groups/page.tsx",
-                lineNumber: 50,
+                lineNumber: 36,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -651,7 +652,7 @@ function GroupsPage() {
                         item: state.groups
                     }, void 0, false, {
                         fileName: "[project]/src/app/groups/page.tsx",
-                        lineNumber: 68,
+                        lineNumber: 54,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$EditStudents$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -662,7 +663,7 @@ function GroupsPage() {
                         setEditStudent: setEditStudent
                     }, void 0, false, {
                         fileName: "[project]/src/app/groups/page.tsx",
-                        lineNumber: 74,
+                        lineNumber: 60,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$antd$2f$es$2f$table$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Table$3e$__["Table"], {
@@ -683,7 +684,7 @@ function GroupsPage() {
                                         children: id
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/groups/page.tsx",
-                                        lineNumber: 91,
+                                        lineNumber: 77,
                                         columnNumber: 19
                                     }, void 0);
                                 }
@@ -710,7 +711,7 @@ function GroupsPage() {
                                                 }
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/groups/page.tsx",
-                                                lineNumber: 119,
+                                                lineNumber: 105,
                                                 columnNumber: 21
                                             }, void 0),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$DeleteStudents$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -719,13 +720,13 @@ function GroupsPage() {
                                                 deleteStudent: deleteStudent
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/groups/page.tsx",
-                                                lineNumber: 125,
+                                                lineNumber: 111,
                                                 columnNumber: 21
                                             }, void 0)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/groups/page.tsx",
-                                        lineNumber: 118,
+                                        lineNumber: 104,
                                         columnNumber: 19
                                     }, void 0);
                                 }
@@ -739,7 +740,7 @@ function GroupsPage() {
                         })
                     }, void 0, false, {
                         fileName: "[project]/src/app/groups/page.tsx",
-                        lineNumber: 81,
+                        lineNumber: 67,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$antd$2f$es$2f$button$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__$3c$export__default__as__Button$3e$__["Button"], {
@@ -753,19 +754,19 @@ function GroupsPage() {
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/groups/page.tsx",
-                        lineNumber: 142,
+                        lineNumber: 128,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/groups/page.tsx",
-                lineNumber: 67,
+                lineNumber: 53,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/groups/page.tsx",
-        lineNumber: 49,
+        lineNumber: 35,
         columnNumber: 5
     }, this);
 }

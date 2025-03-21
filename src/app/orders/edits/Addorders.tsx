@@ -13,16 +13,46 @@ import {
 } from "antd";
 import { CheckboxGroupProps } from "antd/es/checkbox/Group.js";
 import FormItem from "antd/es/form/FormItem/index.js";
+import axios from "axios";
+import { useEffect, useState } from "react";
+// const useFetchData = (url: string) => {
+//   const [data, setData] = useState([]);
+//   const [loading, setLoading] = useState(true);
+//   useEffect(() => {
+//     setLoading(true);
+//     fetch(url)
+//       .then((res) => res.json())
+//       .then((data) => {
+//         setData(res);
+//       })
+//       .catch((er) => console.log(er))
+//       .finally(() => {
+//         setLoading(false);
+//       });
+//   }, [url]);
+//   return data, loading;
+// };
 
 function AddOrders({ onClose, open, showDrawer, item }: any) {
   const state = useGlobalStore();
+
+  // const { data, loading }: any = useFetchData(
+  //   `https://jsonplaceholder.typicode.com/todos`
+  // );
+  // console.log(data, loading);
+
+  async function testFetch() {
+    const res = await axios.get(`https://jsonplaceholder.typicode.com/todos`);
+    console.log(res);
+  }
+  testFetch();
   return (
     <>
       <Button type="primary" onClick={showDrawer} icon={<PlusOutlined />}>
         Buyurtma qo'shish
       </Button>
       <Drawer
-        title="Yangi student qo'shish"
+        title="Yangi buyurtma qo'shish"
         width={500}
         onClose={onClose}
         open={open}
@@ -45,12 +75,27 @@ function AddOrders({ onClose, open, showDrawer, item }: any) {
             onClose(false);
           }}
         >
-          <FormItem
-            label="Nomi"
-            name="name"
-            rules={[{ required: true, message: "Nomi kiritilmadi!!!" }]}
-          >
-            <Input />
+          <FormItem label="Status" name="status">
+            <Radio.Group
+              block
+              options={[
+                {
+                  label: "Qabul qiindi",
+                  value: "qabul_qilindi",
+                },
+                {
+                  label: "Yetkazilmoqda",
+                  value: "yetkazib_berilmoqda",
+                },
+                {
+                  label: "Tugallandi",
+                  value: "tugallandi",
+                },
+              ]}
+              defaultValue="Apple"
+              optionType="button"
+              buttonStyle="solid"
+            />
           </FormItem>
           <FormItem
             label="Manzil"

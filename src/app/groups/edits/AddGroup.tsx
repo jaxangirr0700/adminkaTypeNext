@@ -26,7 +26,7 @@ function AddGroup({ onClose, open, showDrawer }: any) {
         Guruh qo'shish
       </Button>
       <Drawer
-        title="Yangi student qo'shish"
+        title="Yangi guruh qo'shish"
         width={500}
         onClose={onClose}
         open={open}

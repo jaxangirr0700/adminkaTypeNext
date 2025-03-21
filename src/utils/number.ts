@@ -1,3 +1,3 @@
 export function getRandomID() {
-  return Math.floor(Math.random() * 4500);
+  return Math.floor(Math.random() * 100000);
 }

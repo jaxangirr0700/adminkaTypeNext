@@ -9,7 +9,7 @@ __turbopack_context__.s({
     "getRandomID": (()=>getRandomID)
 });
 function getRandomID() {
-    return Math.floor(Math.random() * 4500);
+    return Math.floor(Math.random() * 100000);
 }
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
@@ -28,31 +28,38 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$e
 ;
 ;
 const useGlobalStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$esm$2f$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["create"])(()=>{
+    const studentIdReal = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getRandomID"])();
+    const groupIdReal = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getRandomID"])();
+    const productIdReal = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getRandomID"])();
+    const cartegorieIdReal = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getRandomID"])();
+    const orderIdReal = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getRandomID"])();
     const initialStudents = [
         {
-            id: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getRandomID"])(),
+            id: studentIdReal,
             active: true,
             firstName: "Jaxangir",
             lastName: "Raxmarullayev",
             age: 0,
             gender: "male",
-            group_id: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getRandomID"])()
+            group_id: groupIdReal
         }
     ];
     const initialOrders = [
         {
-            productID: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getRandomID"])(),
-            studentID: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getRandomID"])(),
-            id: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getRandomID"])(),
+            categorieId: cartegorieIdReal,
+            productID: productIdReal,
+            studentID: studentIdReal,
+            id: orderIdReal,
             name: "Order",
             coutnt: 2,
             total_price: 1212,
-            address: "Tashkent"
+            address: "Tashkent",
+            status: "qabul_qilindi"
         }
     ];
     const initialCategories = [
         {
-            id: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getRandomID"])(),
+            id: cartegorieIdReal,
             active: true,
             name: "Categories",
             productCount: 0
@@ -60,7 +67,7 @@ const useGlobalStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_
     ];
     const initialProduct = [
         {
-            id: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getRandomID"])(),
+            id: productIdReal,
             active: true,
             name: "Product",
             price: 0,
@@ -69,20 +76,8 @@ const useGlobalStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_
     ];
     const initialGroups = [
         {
-            id: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getRandomID"])(),
+            id: groupIdReal,
             name: "guruh 1",
-            isActive: false,
-            studentCount: 0
-        },
-        {
-            id: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getRandomID"])(),
-            name: "guruh 2",
-            isActive: false,
-            studentCount: 0
-        },
-        {
-            id: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$number$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getRandomID"])(),
-            name: "guruh 3",
             isActive: false,
             studentCount: 0
         }
@@ -97,7 +92,8 @@ const useGlobalStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_
         groups: storedGroups.length > 0 ? storedGroups : initialGroups,
         categories: storedCategories.length > 0 ? storedCategories : initialCategories,
         products: storedProducts.length > 0 ? storedProducts : initialProduct,
-        orders: storedOrders.length > 0 ? storedOrders : initialOrders
+        orders: storedOrders.length > 0 ? storedOrders : initialOrders,
+        language: "uzbek"
     };
 });
 const __TURBOPACK__default__export__ = useGlobalStore;

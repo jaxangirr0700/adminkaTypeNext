@@ -1,5 +1,15 @@
 import useGlobalStore from "@/store/my-store";
-import { Button, Drawer, Form, Input, InputNumber, Select, Space } from "antd";
+import { OrdersTypes, StudentTypes } from "@/types";
+import {
+  Button,
+  Drawer,
+  Form,
+  Input,
+  InputNumber,
+  Radio,
+  Select,
+  Space,
+} from "antd";
 import FormItem from "antd/es/form/FormItem/index.js";
 
 function EditOrders({
@@ -12,7 +22,7 @@ function EditOrders({
   return (
     <>
       <Drawer
-        title="Yangi student qo'shish"
+        title="Buyurtmani  o'zgartirish"
         width={500}
         onClose={onCloseEdit}
         open={editOpen}
@@ -30,7 +40,7 @@ function EditOrders({
             const localStudent = localStorage.getItem("orders");
             const realStudents = localStudent ? JSON.parse(localStudent) : [];
 
-            const updatedStudents = realStudents.map((student: any) => {
+            const updatedStudents = realStudents.map((student: OrdersTypes) => {
               if (student.id === EditStudent.id) {
                 return {
                   ...student,
@@ -44,12 +54,27 @@ function EditOrders({
             onCloseEdit();
           }}
         >
-          <FormItem
-            label="Nomi"
-            name="name"
-            rules={[{ required: true, message: "Nomi kiritilmadi!!!" }]}
-          >
-            <Input />
+          <FormItem label="Status" name="status">
+            <Radio.Group
+              block
+              options={[
+                {
+                  label: "Qabul qiindi",
+                  value: "qabul_qilindi",
+                },
+                {
+                  label: "Yetkazilmoqda",
+                  value: "yetkazib_berilmoqda",
+                },
+                {
+                  label: "Tugallandi",
+                  value: "tugallandi",
+                },
+              ]}
+              defaultValue="Apple"
+              optionType="button"
+              buttonStyle="solid"
+            />
           </FormItem>
           <FormItem
             label="Manzil"
@@ -78,7 +103,7 @@ function EditOrders({
                 };
               })}
             />
-          </FormItem>{" "}
+          </FormItem>
           <FormItem
             label="Mahsulot"
             name="productID"

@@ -8,20 +8,8 @@ import { Button, Switch, Table } from "antd";
 import { useState } from "react";
 import AddGroup from "./edits/AddGroup";
 import { getRandomID } from "@/utils/number";
-
-type StudentType = {
-  id: number;
-  firstName: string;
-  lastName: string;
-  age: number;
-  gender: "male" | "female";
-  active: boolean;
-};
-
-type GlobalStoreType = {
-  students: StudentType[];
-  groups: GroupType[];
-};
+import EditGroups from "./edits/EditGroup";
+import DeleteGroups from "./edits/DeleteGroup";
 
 function GroupsPage() {
   const state = useGlobalStore();
@@ -71,7 +59,7 @@ function GroupsPage() {
           showDrawer={showDrawer}
           item={state.groups}
         />
-        <EditStudents
+        <EditGroups
           editOpen={editOpen}
           showDrawerEdit={showDrawerEdit}
           onCloseEdit={onCloseEdit}
@@ -122,8 +110,18 @@ function GroupsPage() {
                         console.log("switch click");
                       }}
                     />
-                    <DeleteStudents
-                      item={studentt}
+                  </div>
+                );
+              },
+            },
+            {
+              title: "Delete",
+              dataIndex: "s",
+              render: (s, group) => {
+                return (
+                  <div>
+                    <DeleteGroups
+                      item={group}
                       setDeleteStudent={setDeleteStudent}
                       deleteStudent={deleteStudent}
                     />

@@ -9,31 +9,39 @@ import { getRandomID } from "@/utils/number";
 import { create } from "zustand";
 
 const useGlobalStore = create(() => {
+  const studentIdReal = getRandomID();
+  const groupIdReal = getRandomID();
+  const productIdReal = getRandomID();
+  const cartegorieIdReal = getRandomID();
+  const orderIdReal = getRandomID();
+
   const initialStudents: StudentTypes[] = [
     {
-      id: getRandomID(),
+      id: studentIdReal,
       active: true,
       firstName: "Jaxangir",
       lastName: "Raxmarullayev",
       age: 0,
       gender: "male",
-      group_id: getRandomID(),
+      group_id: groupIdReal,
     },
   ];
   const initialOrders: OrdersTypes[] = [
     {
-      productID: getRandomID(),
-      studentID: getRandomID(),
-      id: getRandomID(),
+      categorieId: cartegorieIdReal,
+      productID: productIdReal,
+      studentID: studentIdReal,
+      id: orderIdReal,
       name: "Order",
       coutnt: 2,
       total_price: 1212,
       address: "Tashkent",
+      status: "qabul_qilindi",
     },
   ];
   const initialCategories: CategoriesTypes[] = [
     {
-      id: getRandomID(),
+      id: cartegorieIdReal,
       active: true,
       name: "Categories",
       productCount: 0,
@@ -41,7 +49,7 @@ const useGlobalStore = create(() => {
   ];
   const initialProduct: ProductTypes[] = [
     {
-      id: getRandomID(),
+      id: productIdReal,
       active: true,
       name: "Product",
       price: 0,
@@ -50,20 +58,8 @@ const useGlobalStore = create(() => {
   ];
   const initialGroups = [
     {
-      id: getRandomID(),
+      id: groupIdReal,
       name: "guruh 1",
-      isActive: false,
-      studentCount: 0,
-    },
-    {
-      id: getRandomID(),
-      name: "guruh 2",
-      isActive: false,
-      studentCount: 0,
-    },
-    {
-      id: getRandomID(),
-      name: "guruh 3",
       isActive: false,
       studentCount: 0,
     },
@@ -97,6 +93,7 @@ const useGlobalStore = create(() => {
       storedCategories.length > 0 ? storedCategories : initialCategories,
     products: storedProducts.length > 0 ? storedProducts : initialProduct,
     orders: storedOrders.length > 0 ? storedOrders : initialOrders,
+    language: "uzbek",
   };
 });
 

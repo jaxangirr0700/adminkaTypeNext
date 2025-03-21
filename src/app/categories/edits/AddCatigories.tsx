@@ -59,7 +59,7 @@ function AddCategories({ onClose, open, showDrawer }: any) {
           </FormItem>
           <FormItem
             label="Mahsulotlar soni"
-            name="studentCount"
+            name="productCount"
             rules={[
               { required: true, message: "Mahsulotlar soni kiritilmadi!!!" },
             ]}

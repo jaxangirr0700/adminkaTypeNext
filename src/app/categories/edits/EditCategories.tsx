@@ -17,7 +17,7 @@ function EditCategories({
   return (
     <>
       <Drawer
-        title="Yangi student qo'shish"
+        title=" Kategoriyani o'zgartirish "
         width={500}
         onClose={onCloseEdit}
         open={editOpen}
