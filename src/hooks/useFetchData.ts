@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-export type ResType = {
+export type TodoType = {
   id: number;
   title: string;
   userId: number;
@@ -9,7 +9,7 @@ export type ResType = {
 };
 
 export function useFetchData(url: string) {
-  const [data, setData] = useState<ResType[]>([]);
+  const [data, setData] = useState<TodoType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   useEffect(() => {
     fetch(url)

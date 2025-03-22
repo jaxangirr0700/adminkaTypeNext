@@ -840,6 +840,30 @@
     width: 100vw;
   }
 
+  .max-w-0 {
+    max-width: calc(var(--spacing) * 0);
+  }
+
+  .max-w-\[200px\] {
+    max-width: 200px;
+  }
+
+  .max-w-\[300px\] {
+    max-width: 300px;
+  }
+
+  .max-w-\[350px\] {
+    max-width: 350px;
+  }
+
+  .max-w-\[370px\] {
+    max-width: 370px;
+  }
+
+  .max-w-\[400px\] {
+    max-width: 400px;
+  }
+
   .max-w-none {
     max-width: none;
   }

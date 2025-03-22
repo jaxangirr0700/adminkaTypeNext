@@ -203,10 +203,10 @@ function TodoListPage() {
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                                className: "grid grid-cols-1 gap-4",
+                                className: "grid grid-cols-1 gap-4 items-center justify-center justify-items-center",
                                 children: data.map((i)=>{
                                     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                        className: "border border-yellow-300 rounded-xl hover:scale-105 transition-transform duration-300 px-4 py-2 text-md font-semibold cursor-pointer shadow-md",
+                                        className: "max-w-[370px] border border-yellow-300 rounded-xl hover:scale-105 transition-transform duration-300 px-4 py-2 text-md font-semibold cursor-pointer shadow-md",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             children: i.title
                                         }, void 0, false, {
