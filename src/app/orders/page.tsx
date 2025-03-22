@@ -1,13 +1,17 @@
 "use client";
+import { texts } from "@/constants/data";
 import useGlobalStore from "@/store/my-store";
-import { Button, Table, Select } from "antd";
-import { useState } from "react";
+import { Button, Select, Table } from "antd";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import AddOrders from "./edits/Addorders";
 import DeleteOrders from "./edits/Deleteorders";
 import EditOrders from "./edits/EditOrders";
-import { texts } from "@/constants/data";
 
 type Language = "uzbek" | "english" | "russian";
+
+
+
 
 function OrdersPage() {
   const state = useGlobalStore();

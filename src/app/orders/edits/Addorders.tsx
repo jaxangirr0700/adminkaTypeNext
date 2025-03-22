@@ -15,23 +15,7 @@ import { CheckboxGroupProps } from "antd/es/checkbox/Group.js";
 import FormItem from "antd/es/form/FormItem/index.js";
 import axios from "axios";
 import { useEffect, useState } from "react";
-// const useFetchData = (url: string) => {
-//   const [data, setData] = useState([]);
-//   const [loading, setLoading] = useState(true);
-//   useEffect(() => {
-//     setLoading(true);
-//     fetch(url)
-//       .then((res) => res.json())
-//       .then((data) => {
-//         setData(res);
-//       })
-//       .catch((er) => console.log(er))
-//       .finally(() => {
-//         setLoading(false);
-//       });
-//   }, [url]);
-//   return data, loading;
-// };
+
 
 function AddOrders({ onClose, open, showDrawer, item }: any) {
   const state = useGlobalStore();
@@ -41,11 +25,7 @@ function AddOrders({ onClose, open, showDrawer, item }: any) {
   // );
   // console.log(data, loading);
 
-  async function testFetch() {
-    const res = await axios.get(`https://jsonplaceholder.typicode.com/todos`);
-    console.log(res);
-  }
-  testFetch();
+
   return (
     <>
       <Button type="primary" onClick={showDrawer} icon={<PlusOutlined />}>

@@ -7,6 +7,7 @@ import {
   HomeOutlined,
   OrderedListOutlined,
   ProductFilled,
+  ToolOutlined,
   UserOutlined,
 } from "@ant-design/icons";
 import { Menu } from "antd";
@@ -74,7 +75,11 @@ export default function Sidebar() {
             icon: <OrderedListOutlined />,
             label: <Link href={"/orders"}>Buyurtmalar</Link>,
           },
-          // Qo'shimcha sahifalar uchun kod izohga olingan
+          {
+            key: "/todo",
+            icon: <ToolOutlined />,
+            label: <Link href={"/todo"}>TodoApi</Link>,
+          },
         ]}
       />
     </aside>
